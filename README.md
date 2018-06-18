@@ -11,9 +11,10 @@ For this assignment, we created a memory game with React.  This assignment will 
  4. Every time an image is clicked, the images rendered to the page should shuffle themselves in a random order.
  5. Once the user's score is reset after an incorrect guess, the game should restart.
 
-## Technology used
-*HTML
-*CSS
-*JavaScript
-*Node.js
-*React
+## Technology used 
+
+* HTML
+* CSS
+* JavaScript
+* Node.js
+* React
