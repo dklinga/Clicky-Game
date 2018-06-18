@@ -12,8 +12,8 @@ For this assignment, we created a memory game with React.  This assignment will 
  5. Once the user's score is reset after an incorrect guess, the game should restart.
 
 ## Technology used
-HTML
-CSS
-JavaScript
-Node.js
-React
+*HTML
+*CSS
+*JavaScript
+*Node.js
+*React
