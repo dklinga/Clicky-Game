@@ -29,28 +29,44 @@ shuffleArray = array => {
 
 selectFriends = character => {
   const findFriends = this.state.unselectedFriends.find(item => item.character === character);
+  console.log(character)
+    if(character.clicked === false){
+        character.clicked = true;
+        this.setState({
+            curScore: this.state.curScore + 1,
+            message: "You guessed right!"
+        })
+    } else {
+        console.log("already clicked")
+        this.setState({ 
+   message: "You guessed wrong!",
+topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
+curScore: 0,
+ });
+        
+    }
 
-  if(findFriends === undefined) {
-      // failure to select a character
-      this.setState({ 
-          message: "You guessed wrong!",
-          topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
-          curScore: 0,
-          friends: friends,
-          unselectedFriends: friends
-      });
-  }
-  else {
-      // success to select character
-      const newFriends = this.state.unselectedFriends.filter(item => item.character !== character);
+//   if(findFriends === undefined) {
+//       // failure to select a character
+//       this.setState({ 
+//           message: "You guessed wrong!",
+//           topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
+//           curScore: 0,
+//           friends: friends,
+//           unselectedFriends: friends
+//       });
+//   }
+//   else {
+//       // success to select character
+//       const newFriends = this.state.unselectedFriends.filter(item => item.character !== character);
       
-      this.setState({ 
-          message: "You guessed right!",
-          curScore: this.state.curScore + 1,
-          friends: friends,
-          unselectedFriends: newFriends
-      });
-  }
+//       this.setState({ 
+//           message: "You guessed right!",
+//           curScore: this.state.curScore + 1,
+//           friends: friends,
+//           unselectedFriends: newFriends
+//       });
+//   }
 
   this.shuffleArray(friends);
 };
@@ -70,7 +86,9 @@ selectFriends = character => {
       {
           this.state.friends.map(friend => (
               <FriendCard
+                  key={friend.id}
                   name={friend.name}
+                  friend={friend}
                   image={friend.image}
                   selectFriends={this.selectFriends} 
                   curScore={this.state.curScore}

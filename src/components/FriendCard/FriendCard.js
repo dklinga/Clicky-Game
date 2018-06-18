@@ -16,7 +16,7 @@ import "./FriendCard.css";
 
 
 const FriendCard = props => (
-	<div onClick={() => props.selectFriends(props.id)} className="card">
+	<div onClick={() => props.selectFriends(props.friend)} className="card">
 		<div className="img-container">
       		<img alt={props.name} src={props.image} />
     	</div>
